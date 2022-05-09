@@ -54,13 +54,11 @@ const manipulateClasses = (todos, classToAdd, classToRemove) => {
 }
 
 const hideTodos = (todos, inputValue) => {
-  // Deixa os Todos que não dão match com o valor pesquisado invisíveis
   const todoToHide = filterTodos(todos, inputValue, false)
   manipulateClasses(todoToHide, 'd-none', 'd-flex')
 }
 
 const showTodos = (todos, inputValue) => {
-  // Deixa os Todos que dão match com o valor pesquisado visíveis
   const todoToShow = filterTodos(todos, inputValue, true)
   manipulateClasses(todoToShow, 'd-flex', 'd-none')
   createMessageTodoNotFound(todoToShow)
