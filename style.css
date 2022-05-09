@@ -1,3 +1,11 @@
+body {
+  background-color: #0D1117;
+}
+
+i:hover {
+  color: tomato;
+}
+
 .container {
   max-width: 400px;
 }
@@ -10,8 +18,16 @@ input[type=text]:focus {
   max-width: 400px;
 }
 
-.todos-container li {
+/* .todos-container li {
   background: #484E53;
+  background: #697179;
+} */
+
+.todo-pair {
+  background: #6A8BB4;
+}
+.todo-odd {
+  background: #345574;
 }
 
 i[data-trash] {

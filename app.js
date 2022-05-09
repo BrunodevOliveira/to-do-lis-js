@@ -11,6 +11,7 @@ const removeTodo = event => {
 
   if(trashDataValue){
     todo.remove()
+    changeListColors()
   }
 }
 
@@ -30,6 +31,8 @@ const addTodo = event => {
     !todoExist ? todosContainer.innerHTML += todoTemplate : createAlertMessage(inputValue) 
     event.target.reset()
   }
+
+  changeListColors()
 }
 
 const searchTodo = event => {
@@ -70,7 +73,7 @@ const createMessageTodoNotFound = ({ length: quantityOfTodos }) => {
   
   if(!quantityOfTodos){
     todosContainer.innerHTML += `
-      <li class="list-group-item d-flex justify-content-between align-items-center" data-todo="${messageTodoNotExist}">
+      <li class="list-group-item d-flex justify-content-between align-items-center todo-odd" data-todo="${messageTodoNotExist}">
         <span>${messageTodoNotExist}</span>
       </li>`
   } 
@@ -95,6 +98,20 @@ const createAlertMessage = (todo) => {
  
   formAddTodo.addEventListener('click', () => {
     paragraph.classList.add('d-none')
+  })
+}
+
+const changeListColors = () => {
+  const listTodos = [...todosContainer.children]
+  listTodos.forEach((todo, index) => {
+    const isPair = index % 2 === 0
+    if(isPair) {
+      todo.classList.add('todo-pair')
+      todo.classList.remove('todo-odd')
+    } else {
+      todo.classList.add('todo-odd')
+      todo.classList.remove('todo-pair')
+    }
   })
 }
 
